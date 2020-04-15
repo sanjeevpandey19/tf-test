@@ -47,7 +47,7 @@ jobs:
       - name: Run terraform-compliance
         run: |
           ls -ll
-       #   ~/.local/bin/terraform-compliance -f . -p plan.out
+       #   ~/.local/bin/terraform-compliance -f . -p test/plan.out
           
 
       
