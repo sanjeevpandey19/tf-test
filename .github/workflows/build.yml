@@ -46,7 +46,7 @@ jobs:
           pip3 install terraform-compliance
       - name: Run terraform-compliance
         run: |
-          ~/.local/bin/terraform-compliance --version
+          ~/.local/bin/terraform-compliance -f . -p plan.out
           
 
       
