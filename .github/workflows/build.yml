@@ -44,19 +44,36 @@ jobs:
         run: |
           sudo apt-get install python3-dev python3-pip python3-venv python3-wheel gcc libpq-dev python3-setuptools
           pip3 install terraform-compliance
-      - name: Run terraform-compliance
-        run: |              
-          ~/.local/bin/terraform-compliance -f . -p test/plan.out >> tf-complience.out
-      - name: comment PR
-        uses: unsplash/comment-on-pr@master
+      - name: Add comment to PR
+        if: contains(github.event.comment.body, 'special string')
         env:
+          URL: ${{ github.event.issue.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          msg: echo `cat tf-complience.out`
-          check_for_duplicate_msg: true
+        run: |
+          curl \
+            -X POST \
+            $URL \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data '{ "body": "blah blah" }'
+
+      # - name: Run terraform-compliance
+      #   run: |              
+      #   #  ~/.local/bin/terraform-compliance -f . -p test/plan.out
+      #     curl -X POST \
+      #         $URL \
+      #       -H "Content-Type: application/json" \
+      #       -H "Authorization: token $GITHUB_TOKEN" \
+      #       --data '{ "body": "blah blah" }'
+      # # - name: comment PR
+      #   uses: unsplash/comment-on-pr@master
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     msg: echo `cat tf-complience.out`
+      #     check_for_duplicate_msg: true
           
       
-          
 
       
 
