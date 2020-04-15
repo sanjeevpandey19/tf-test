@@ -19,11 +19,9 @@ jobs:
           tf_actions_comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        run: |
-          apt-get install python3-dev
       # - name: init
       #   uses: hashicorp/terraform-github-actions@master
-      #   with: 
+      #   with:
       #     tf_actions_version: ${{ env.tf_version }}
       #     tf_actions_subcommand: 'init'
       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
@@ -42,13 +40,14 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #     AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_key }}
-      # - name: Installling tf-complience 
-      #   run: |
-      #     sudo apt-get install python3-dev python3-pip python3-venv python3-wheel gcc libpq-dev python3-setuptools
-      #     pip3 install terraform-compliance
-      # - name: Run terraform-compliance
-      #   run: |                
-      #     ~/.local/bin/terraform-compliance -f . -p test/plan.out
+      - name: Installling tf-complience 
+        run: |
+          sudo apt-get install python3-dev python3-pip python3-venv python3-wheel gcc libpq-dev python3-setuptools
+          pip3 install terraform-compliance
+      - name: Run terraform-compliance
+        run: |
+          echo $GITHUB_EVENT_PATH                
+        #  ~/.local/bin/terraform-compliance -f . -p test/plan.out
           
 
       
