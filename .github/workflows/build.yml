@@ -50,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ~/.local/bin/terraform-compliance -f . -p test/plan.out >> ../tf-complience.out
-          export tf-complience=$(cat ../main.tf)
+          export tf-complience=$(cat ../tf-complience.out)
           expport fmtPayload=$(echo "${tf-complience}" | jq -R --slurp '{body: .}')
           echo "${fmtPayload}" | curl -X POST $(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url) -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data @-
 
