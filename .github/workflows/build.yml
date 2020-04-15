@@ -8,9 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      #       #      - uses: actions/checkout@master
-      # - uses: aslafy-z/gitleaks-action@master
-      # - uses: aslafy-z/gitleaks-action@master
+      - uses: actions/checkout@master
       - name: tf-fmt
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -18,5 +16,3 @@ jobs:
           tf_actions_subcommand: 'fmt'
           tf_actions_working_dir: ${{ env.tf_working_dir }}
           tf_actions_comment: true
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
