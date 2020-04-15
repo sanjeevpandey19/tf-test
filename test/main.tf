@@ -29,3 +29,9 @@ resource "aws_iam_policy" "assumeany-policy" {
 }
 EOF
 }
+
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
