@@ -41,7 +41,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_key }}
       - name: tf-complience 
-        run: python --version
+        run: python3 --version
     
 
 
