@@ -46,13 +46,14 @@ jobs:
           pip3 install terraform-compliance
       - name: Add comment to PR
         env:
-          URL: ${{ github.event.issue.comments_url }}
+       #   URL: ${{ github.event.issue.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url) && curl -X POST $URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "blah blah" }'
+          URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url) && echo $URL 
+         # && curl -X POST $URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "blah blah" }'
 
       # - name: Run terraform-compliance
-      #   run: |              
+      #   run: |              #
       #   #  ~/.local/bin/terraform-compliance -f . -p test/plan.out
       #     curl -X POST \
       #         $URL \
