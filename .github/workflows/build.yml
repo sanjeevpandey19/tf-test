@@ -46,7 +46,7 @@ jobs:
           pip3 install terraform-compliance
       - name: Run terraform-compliance
         run: |
-          env               
+          cat /home/runner/work/_temp/_github_workflow/event.json            
         #  ~/.local/bin/terraform-compliance -f . -p test/plan.out
           
 
