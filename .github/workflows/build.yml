@@ -44,9 +44,9 @@ jobs:
         run: |
           sudo apt-get install python3-dev python3-pip python3-venv python3-wheel gcc libpq-dev python3-setuptools
           pip3 install terraform-compliance
-      - name: Run terraform-compliance
-        run: |              
-          ~/.local/bin/terraform-compliance -f . -p test/plan.out
+      # - name: Run terraform-compliance
+      #   run: |              
+      #     ~/.local/bin/terraform-compliance -f . -p test/plan.out
       - name: comment PR
         uses: unsplash/comment-on-pr@master
         env:
