@@ -4,14 +4,12 @@ on: [push, pull_request]
 env:
  tf_version: 'latest'
  tf_working_dir: 'test'
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      #       #      - uses: actions/checkout@master
-      # - uses: aslafy-z/gitleaks-action@master
-      # - uses: aslafy-z/g  itleaks-action@master
+      - uses: actions/checkout@master
       - name: tf-fmt
         uses: hashicorp/terraform-github-actions@master
         with:
