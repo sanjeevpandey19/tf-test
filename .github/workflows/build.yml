@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - uses: aslafy-z/gitleaks-action@master
       - name: tf-fmt
         uses: hashicorp/terraform-github-actions@master
         with:
