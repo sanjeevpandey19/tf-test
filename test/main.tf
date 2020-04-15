@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "assumeany-policy" {
-  name       = "assumeany-policy"
+  name        = "assumeany-policy"
   path        = "/"
   description = "test policy"
 
@@ -29,3 +29,9 @@ resource "aws_iam_policy" "assumeany-policy" {
 }
 EOF
 }
+
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
