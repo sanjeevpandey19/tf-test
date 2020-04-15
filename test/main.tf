@@ -1,6 +1,6 @@
 resource "aws_iam_policy" "assumeany-policy" {
-  name       = "assumeany-policy"
-  path       = "/"
+  name        = "assumeany-policy"
+  path        = "/"
   description = "test policy"
 
   policy = <<EOF
