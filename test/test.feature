@@ -7,4 +7,4 @@ Feature: test
     And its Effect is Allow
     And its Action is sts:AssumeRole
     And it contains resource
-    Then its value must not match the "\*" regex
+    Then its value must match the "\*" regex
